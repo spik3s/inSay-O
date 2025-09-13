@@ -1,7 +1,5 @@
 .venv/
 venv/
-env/
-.env/
 .env
 __pycache__/
 *.pyc
@@ -10,3 +8,8 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 .DS_Store
+data/
+storage/
+dist/
+build/
+*.log
