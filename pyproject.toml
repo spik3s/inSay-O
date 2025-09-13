@@ -1,0 +1,7 @@
+[project]
+name = "insay-o"
+version = "0.1.0"
+description = "A local‑first desktop application that combines development data (Jira, GitHub, local files) into a unified, queryable knowledge base. Leveraging a multi‑stage RAG pipeline with LlamaIndex, the tool delivers precise, context-aware answers to developer queries."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
