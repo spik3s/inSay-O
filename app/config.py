@@ -1,5 +1,7 @@
 from functools import lru_cache
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
     LLM_PROVIDER: str = "openai"
@@ -11,7 +13,8 @@ class Settings(BaseSettings):
     ENABLE_ADVANCED_SEARCH: bool = True
     MAX_CONTEXT_CHUNKS: int = 10
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=False)
-    
+
+
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     return Settings()
