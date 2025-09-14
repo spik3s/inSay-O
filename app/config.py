@@ -1,6 +1,25 @@
-from functools import lru_cache
+from __future__ import annotations
 
+from functools import lru_cache
+from pathlib import Path
+
+from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+def _load_dotenv() -> None:
+    # Load from common locations without overriding existing env
+    candidates = [
+        Path.cwd() / ".env",
+        Path(__file__).resolve().parents[2] / ".env",  # repo root
+        Path(__file__).resolve().parents[1] / ".env",  # package root
+    ]
+    for p in candidates:
+        try:
+            if p.exists():
+                load_dotenv(p, override=False)
+        except Exception:
+            pass
 
 
 class Settings(BaseSettings):
@@ -17,4 +36,5 @@ class Settings(BaseSettings):
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
+    _load_dotenv()
     return Settings()
