@@ -4,9 +4,10 @@ import shutil
 from pathlib import Path
 
 import typer
-from ingest import main as ingest_main  # reuse ingest
 
 from app.config import get_settings
+
+from .ingest import main as ingest_main  # reuse ingest
 
 app = typer.Typer(add_completion=False)
 
