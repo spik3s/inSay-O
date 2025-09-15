@@ -31,6 +31,7 @@ class Settings(BaseSettings):
     CHROMA_PERSIST_DIR: str = "./storage/chroma"
     ENABLE_ADVANCED_SEARCH: bool = True
     MAX_CONTEXT_CHUNKS: int = 10
+    BM25_INDEX_PATH: str = "./storage/bm25_index.pkl"
     model_config = SettingsConfigDict(env_file=".env", case_sensitive=False)
 
 
